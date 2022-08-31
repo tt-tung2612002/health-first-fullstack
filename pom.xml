@@ -188,14 +188,26 @@
         <!-- <defaultGoal>spring-boot:run</defaultGoal> -->
         <defaultGoal>spring-boot:run</defaultGoal>
         <plugins>
-            <!--            <plugin>-->
-            <!--                <groupId>org.eclipse.jetty</groupId>-->
-            <!--                <artifactId>jetty-maven-plugin</artifactId>-->
-            <!--                <version>${jetty.version}</version>-->
-            <!--                <configuration>-->
-            <!--                    <scanIntervalSeconds>1</scanIntervalSeconds>-->
-            <!--                </configuration>-->
-            <!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.heroku</groupId>
+                                    <artifactId>webapp-runner</artifactId>
+                                    <version>9.0.52.1</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
