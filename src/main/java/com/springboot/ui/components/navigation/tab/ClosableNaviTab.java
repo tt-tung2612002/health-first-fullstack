@@ -9,20 +9,21 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 
 public class ClosableNaviTab extends NaviTab {
 
-	private final Button close;
+    private final Button close;
 
-	public ClosableNaviTab(String label,
-	                       Class<? extends Component> navigationTarget) {
-		super(label, navigationTarget);
-		getElement().setAttribute("closable", true);
+    public ClosableNaviTab(String label,
+                           Class<? extends Component> navigationTarget) {
+        super(label, navigationTarget);
 
-		close = UIUtils.createButton(VaadinIcon.CLOSE, ButtonVariant.LUMO_TERTIARY_INLINE);
-		// ButtonVariant.LUMO_SMALL isn't small enough.
-		UIUtils.setFontSize(FontSize.XXS, close);
-		add(close);
-	}
+        getElement().setAttribute("closable", true);
 
-	public Button getCloseButton() {
-		return close;
-	}
+        close = UIUtils.createButton(VaadinIcon.CLOSE, ButtonVariant.LUMO_TERTIARY_INLINE);
+        // ButtonVariant.LUMO_SMALL isn't small enough.
+        UIUtils.setFontSize(FontSize.XXS, close);
+        add(close);
+    }
+
+    public Button getCloseButton() {
+        return close;
+    }
 }

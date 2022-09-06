@@ -1,8 +1,10 @@
 package com.springboot;
 
 // import com.vaadin.flow.component.page.AppShellConfigurator;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
@@ -11,7 +13,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * Use the @PWA annotation make the application installable on phones, tablets
  * and some desktop browsers.
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = ErrorMvcAutoConfiguration.class)
 // @PWA(name = "My Starter Project", shortName = "My Starter Project", iconPath
 // = UIUtils.IMG_PATH + "logos/18.png", backgroundColor = "#233348", themeColor
 // = "#233348")

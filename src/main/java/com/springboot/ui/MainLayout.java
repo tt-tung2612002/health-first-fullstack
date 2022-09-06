@@ -132,13 +132,13 @@ public class MainLayout extends FlexBoxLayout
     private void initNaviItems() {
         NaviMenu menu = naviDrawer.getMenu();
         menu.addNaviItem(VaadinIcon.HOME, "Home", Home.class);
-        menu.addNaviItem(VaadinIcon.INSTITUTION, "Accounts", Accounts.class);
-        menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Payments", Payments.class);
-        menu.addNaviItem(VaadinIcon.CHART, "Statistics", Statistics.class);
+        menu.addNaviItem(VaadinIcon.INSTITUTION, "Facility Management", Accounts.class);
+        menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Certificate Management", Payments.class);
+        menu.addNaviItem(VaadinIcon.CHART, "Activity Management", Statistics.class);
 
         NaviItem personnel = menu.addNaviItem(VaadinIcon.USERS, "Personnel",
                 null);
-        menu.addNaviItem(personnel, "Accountants", Accountants.class);
+        menu.addNaviItem(personnel, "Supervisors", Accountants.class);
         menu.addNaviItem(personnel, "Managers", Managers.class);
     }
 
@@ -240,7 +240,7 @@ public class MainLayout extends FlexBoxLayout
     public static MainLayout get() {
         return (MainLayout) UI.getCurrent().getChildren()
                 .filter(component -> component.getClass() == MainLayout.class)
-                .findFirst().get();
+                .findFirst().orElse(null);
     }
 
     public AppBar getAppBar() {
